@@ -21,6 +21,7 @@ android {
             properties.load(rootProject.file("local.properties").newDataInputStream())
         }
 
+        buildConfigField "String", "MAPS_API_KEY", "\"" + properties.getProperty("MAPS_API_KEY", "") + "\""
         manifestPlaceholders = [ mapsApiKey : properties.getProperty("MAPS_API_KEY", "") ]
 
     }
@@ -37,6 +38,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
