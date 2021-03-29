@@ -32,7 +32,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val latLngMadrid = LatLng(40.4167, -3.70325)
         mMap.addMarker(MarkerOptions().position(latLngMadrid).title("Marker en Madrid"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLngMadrid))
+        // mMap.moveCamera(CameraUpdateFactory.newLatLng(latLngMadrid)) Goes with default Zoom
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngMadrid, 10F))
 
         mMap.setOnMarkerClickListener { marker ->
             Toast.makeText(this, "Se ha click sobre ${marker.title}", Toast.LENGTH_LONG).show()
